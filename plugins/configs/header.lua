@@ -149,6 +149,7 @@ M.header = {
   [[                                    ╔▒        ╚▀▄╔    ▀▄                                           ]],
   [[                                  ╔▒╝             └╝╡▄▄ ╚▀▄╚▀╣▄                                    ]],
   [[]],
+  [[]],
   --
   --
   -- [[]],
@@ -180,15 +181,15 @@ M.header = {
 }
 
 M.center = {
-  {
-    icon_hl = "Title",
-    key_hl = "Number",
-    desc_hl = "Title",
-    action = LazyVim.telescope("files"),
-    desc = " Find File              ",
-    icon = " ",
-    key = "f",
-  },
+  -- {
+  --   icon_hl = "Title",
+  --   key_hl = "Number",
+  --   desc_hl = "Title",
+  --   action = LazyVim.telescope("files"),
+  --   desc = " Find File              ",
+  --   icon = " ",
+  --   key = "f",
+  -- },
   -- {
   --   icon_hl = "Title",
   --   key_hl = "Number",
