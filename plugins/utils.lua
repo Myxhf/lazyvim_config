@@ -14,8 +14,5 @@ return {
   {
     'voldikss/vim-translator',
     event = "VeryLazy",
-    -- config = function ()
-    --   require("vim-translator").setup({vim.g.translator_default_engines = "youdao"})
-    -- end
   }
 }
