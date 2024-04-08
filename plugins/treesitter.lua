@@ -1,11 +1,12 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    keys = {
-      { "<cr>", desc = "Increment Selection" },
-      { "<bs>", desc = "Decrement Selection", mode = "x" },
-    },
     opts = {
+      ensure_installed = {
+        "cpp",
+        "make",
+        "verilog",
+      },
       incremental_selection = {
         enable = true,
         keymaps = {

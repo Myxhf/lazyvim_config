@@ -2,17 +2,22 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      -- cmp sources plugins
+      -- cmp engine
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
-      "hrsh7th/cmp-cmdline",
+      -- "L3MON4D3/LuaSnip",
+      -- "saadparwaiz1/cmp_luasnip",
+
+      -- cmp core
       "hrsh7th/nvim-cmp",
-      "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-nvim-lsp",
-      "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
-      "onsails/lspkind-nvim",
+      -- "hrsh7th/cmp-cmdline",
+
+      -- cmp icon
+      -- "onsails/lspkind-nvim",
+      "hrsh7th/cmp-nvim-lua",
     },
     opts = function(_, opts)
       local has_words_before = function()
@@ -45,6 +50,8 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<A-e>"] = cmp.mapping.abort(),
+        ["<A-i>"] = cmp.mapping.confirm({ select = true }),
       })
 
       opts.sources = {
@@ -57,7 +64,7 @@ return {
             -- 定义要过滤掉的类型列表
             local kinds_to_filter = {
               -- 在这里添加更多你想要过滤的类型
-              -- Function = true,
+              Function = true,
               -- Interface = true,
               -- Reference = true,
               -- Class = true,
@@ -69,6 +76,7 @@ return {
         { name = "buffer" },
         { name = "nvim_lua" },
         { name = "path" },
+        -- { name = "cmdline" },
       }
     end,
   },

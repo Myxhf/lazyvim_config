@@ -6,14 +6,6 @@ local opt = vim.opt
 -- long line split show
 opt.wrap = true
 
--- Disable autoformat for lua files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "lua", "c" },
-  callback = function()
-    vim.b.autoformat = false
-  end,
-})
-
 -- 相对行号
 vim.wo.relativenumber = true
 -- 搜索大小写不敏感，除非包含大写
@@ -31,5 +23,4 @@ vim.o.wildmenu = true
 -- 补全最多显示10行
 vim.o.pumheight = 10
 
--- vim.g.translator_default_engines = "youdao"
-vim.g.translator_default_engines = {'bing', 'haici', 'google'}
+vim.g.initial_cwd = vim.fn.getcwd()

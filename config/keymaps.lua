@@ -15,6 +15,10 @@ map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map({ "n", "o", "v" }, "H", "0", { desc = "Jump To Begining" })
 map({ "n", "o", "v" }, "L", "$", { desc = "Jump To End" })
 map("n", "<A-q>", "<cmd> qa <CR>", { desc = "Quit All" })
+map("n", "<C-d>", "22j")
+map("n", "<C-u>", "22k")
+
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
 
 -- Windows split
 map("n", "<leader>wv", "<C-W>v", { desc = "Split Window Right" })
@@ -25,7 +29,9 @@ map("n", "<leader>wd", "<C-W>c", { desc = "Close Current Window" })
 map("n", "<leader>wo", "<C-w>o", { desc = "Close Other Window" })
 
 -- Toggle Telescope
-map("n", "<C-f>", "<cmd> Telescope live_grep <CR>", { desc = "Live grep" })
+map("n", "<C-p>", "<cmd> Telescope find_files <CR>", { desc = "Live grep" })
+map("n", "<C-f>", LazyVim.telescope("live_grep"))
+map("n", "<C-q>", "<cmd>Telescope oldfiles<cr>")
 
 -- IncRename
 map("n", "<leader>ra", ":IncRename ")
@@ -47,3 +53,7 @@ end, { desc = "Toggle floating term" })
 map("n", "<Leader>t", "<Plug>TranslateW", { silent = true })
 -- 在可视模式下，使用 <Leader>w 来调用翻译窗口
 map("v", "<Leader>t", "<Plug>TranslateWV", { silent = true })
+
+map("n", "<C-n>", function()
+  require("neo-tree.command").execute({ toggle = true, dir = vim.g.initial_cwd })
+end)

@@ -46,6 +46,12 @@ return {
     keys = {
       { "<leader>snt", "<cmd> Noice telescope <CR>", desc = "Opens message history in Telescope" },
     },
+    opts = {
+      lsp = {
+        progress = {
+          enabled = true,
+        },
+      },
+    },
   },
-
 }

@@ -153,7 +153,7 @@ return {
         ["@text.strike"] = { fg = theme.maroon, strikethrough = true },
         ["@type.builtin"] = { fg = theme.yellow },
         ["@definition"] = { sp = theme.grey2, underline = true },
-        ["@property"] = { fg = theme.red },
+        -- ["@property"] = { fg = theme.red },
 
         -- markup
         ["@markup.heading"] = { fg = theme.blue },

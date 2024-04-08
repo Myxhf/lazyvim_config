@@ -2,11 +2,15 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
-      { "<C-n>", "<leader>e", desc = "Explorer NeoTree (Root Dir)", remap = true },
+      -- { "<C-n>", "<leader>e", desc = "Explorer NeoTree (Root Dir)", remap = true },
     },
     opts = {
       filesystem = {
-        bind_to_cwd = true,
+        filtered_items = {
+          hide_gitignored = false,
+        },
+        hijack_netrw_behavior = "disabled",
+        bind_to_cwd = false,
         window = {
           mappings = {
             ["."] = "set_root",
