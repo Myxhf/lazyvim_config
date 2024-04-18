@@ -1,3 +1,12 @@
+local function my_custom_commentstring()
+  local filetype = vim.bo.filetype
+  if filetype == "verilog" then
+    return "// %s"
+  -- elseif filetype == "c" then
+  --   return "// %s"
+  end
+end
+
 return {
   {
     "hrsh7th/nvim-cmp",
@@ -114,6 +123,9 @@ return {
   {
     "echasnovski/mini.comment",
     opts = {
+      options = {
+        custom_commentstring = my_custom_commentstring,
+      },
       mappings = {
         comment_line = "<leader>/",
         comment_visual = "<leader>/",
@@ -130,50 +142,23 @@ return {
   },
 
   {
-    "abecodes/tabout.nvim",
-    lazy = true,
-    event = { "InsertEnter" },
+    "echasnovski/mini.pairs",
     config = function()
-      require("tabout").setup({
-        tabkey = "<C-l>",
-        backwards_tabkey = "<C-h>",
-        act_as_tab = true,
-        act_as_shift_tab = false,
-        default_tab = "<C-t>",
-        default_shift_tab = "<C-d>",
-        enable_backwards = true,
-        completion = true,
-        tabouts = {
-          { open = "'", close = "'" },
-          { open = '"', close = '"' },
-          { open = "`", close = "`" },
-          { open = "(", close = ")" },
-          { open = "[", close = "]" },
-          { open = "{", close = "}" },
-        },
-        ignore_beginning = true,
-        exclude = {
-          "qf",
-          "NvimTree",
-          "toggleterm",
-          "TelescopePrompt",
-          "alpha",
-          "netrw",
-        },
-      })
-    end,
-    after = { "nvim-cmp" },
-  },
+      require("mini.pairs").setup({
+        modes = { insert = true, command = false, terminal = false },
+        mappings = {
+          ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\]." },
+          ["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\]." },
+          ["{"] = { action = "open", pair = "{}", neigh_pattern = "[^\\]." },
 
-  {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = function()
-      require("better_escape").setup({
-        mapping = { "jk", "kj" },
-        timeout = vim.o.timeoutlen,
-        clear_empty_lines = false,
-        keys = "<Esc>",
+          [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
+          ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
+          ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
+
+          ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^\\].", register = { cr = false } },
+          ["'"] = { action = "close", pair = "''", neigh_pattern = "[^%a\\].", register = { cr = false } },
+          ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\].", register = { cr = false } },
+        },
       })
     end,
   },

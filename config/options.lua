@@ -23,4 +23,5 @@ vim.o.wildmenu = true
 -- 补全最多显示10行
 vim.o.pumheight = 10
 
+-- neotree root dir
 vim.g.initial_cwd = vim.fn.getcwd()

@@ -15,6 +15,7 @@ return {
         "shfmt",
 
         "verible",
+        -- "hdl-checker",
 
         "json-lsp",
       },
@@ -31,6 +32,7 @@ return {
       servers = {
         bashls = {},
         verible = {},
+        -- hdl_checker = {},
         clangd = {},
         jsonls = {},
       },

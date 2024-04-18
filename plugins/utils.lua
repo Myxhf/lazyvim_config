@@ -36,4 +36,46 @@ return {
       vim.g.translator_default_engines = { "bing", "haici", "google" }
     end,
   },
+
+  {
+    "chentoast/marks.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("marks").setup({
+        default_mappings = true,
+        -- builtin_marks = { ".", "<", ">", "^" },
+        cyclic = true,
+        force_write_shada = false,
+        refresh_interval = 250,
+        sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
+        excluded_filetypes = {
+          "qf",
+          "NvimTree",
+          "toggleterm",
+          "TelescopePrompt",
+          "alpha",
+          "netrw",
+        },
+        bookmark_0 = {
+          sign = "",
+          virt_text = "hello world",
+          annotate = false,
+        },
+        mappings = {},
+      })
+    end,
+  },
+
+  {
+    "max397574/better-escape.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("better_escape").setup({
+        mapping = { "jk", "kj" },
+        timeout = vim.o.timeoutlen,
+        clear_empty_lines = false,
+        keys = "<Esc>",
+      })
+    end,
+  },
 }
