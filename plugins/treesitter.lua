@@ -6,6 +6,7 @@ return {
         "cpp",
         "make",
         "verilog",
+        "python",
       },
       incremental_selection = {
         enable = true,

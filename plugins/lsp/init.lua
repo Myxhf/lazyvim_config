@@ -16,6 +16,7 @@ return {
 
         "verible",
         -- "hdl-checker",
+        "python-lsp-server",
 
         "json-lsp",
       },
@@ -34,6 +35,7 @@ return {
         verible = {},
         -- hdl_checker = {},
         clangd = {},
+        pylsp = {},
         jsonls = {},
       },
     },
