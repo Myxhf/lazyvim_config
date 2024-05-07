@@ -20,7 +20,7 @@ return {
       window = {
         width = 32,
         mappings = {
-          ["l"] = "open",
+          ["w"] = "open",
           ["S"] = "open_split",
           ["s"] = "open_vsplit",
         },
@@ -159,14 +159,14 @@ return {
           type_opts = {
             float = {
               relative = "editor",
-              row = 0.1,
-              col = 0.1,
-              width = 0.8,
-              height = 0.8,
+              row = 0.05,
+              col = 0.05,
+              width = 0.90,
+              height = 0.82,
               border = "single",
             },
             horizontal = { location = "rightbelow", split_ratio = 0.35 },
-            vertical = { location = "rightbelow", split_ratio = 0.47 },
+            vertical = { location = "rightbelow", split_ratio = 0.49 },
           },
         },
         behavior = {
